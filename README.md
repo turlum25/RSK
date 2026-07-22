@@ -1,5 +1,10 @@
-# RSK
-RSK/Really Simple Kernel really simple C and Assembly based kernel.
+<h1 align="center">RSK</h1>
+<p align="center">
+  <img width="649" height="404" alt="image" src="https://github.com/user-attachments/assets/ff8c1591-0f8c-42a6-9f45-f4f86834db26" />
+
+<p align="center">
+  A really simple C and Assembly based kernel.
+</p>
 
 # Requirements
 - Any distro of Linux, or macOS if pre-compiled.
