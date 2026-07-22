@@ -1,6 +1,5 @@
 /*
- * rawK - well self explanatory
- * first kernel! woohoo! P.S rawK = rawKernel
+ * first kernel! woohoo! 
  *
  * original computer emulator 
  * built arpund early 2025 in roblox
@@ -18,10 +17,9 @@
 static char INPUT_CACHE[10][64]; 
 static int  CACHE_INDEX = 0;      
 
-#define INPUT_DATA (INPUT_CACHE[CACHE_INDEX - 1])
+#define INPUT_DATA (INPUT_CACHE[(CACHE_INDEX - 1 + 10) % 10])
 
 static int system_running = 1;
-static int active_tasks = 1;
 
 // printS (or prints(test)) 
 // prints stuff to screen
@@ -51,13 +49,17 @@ void prints(const char *Format, ...) {
                 } else {
                     char NumBuf[12];
                     int I = 0;
+                    int IsNeg = 0;
                     if (N < 0) {
-                        *UART_DATA = '-';
+                        IsNeg = 1;
                         N = -N;
                     }
                     while (N > 0) {
                         NumBuf[I++] = (N % 10) + '0';
                         N /= 10;
+                    }
+                    if (IsNeg) {
+                        NumBuf[I++] = '-';
                     }
                     while (I > 0) {
                         *UART_DATA = NumBuf[--I];
